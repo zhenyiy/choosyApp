@@ -34,11 +34,14 @@ var image9 = require('../images/image9.jpeg')
 var image10 = require('../images/image10.jpeg')
 var image11 = require('../images/image11.jpeg')
 
+
+
 var convos = [{
   "id": 1,
   "name": "Diane",
   "message": "Suspendisse accumsan tortor quis turpis.",
-  "image" : image1
+  "image" : image1,
+  "comments": "Really love it!"
 }, {
   "id": 2,
   "name": "Lois",
@@ -167,32 +170,89 @@ export default class Messages extends Component {
       <View style = {{flex:1}}>
       <Nav type = 'message' onPress = {() => this.props.navigator.replace({id:'home'})} />
       <ScrollView style={styles.container}>
-      <TextInput 
-      style = {{height:50, }}
-      placeholder="Search"
-      />
       <View style={styles.matches}>
-      <Text style = {{color:'#da533c', fontWeight:'600', fontSize:12}}>THIS PARTY'S BUZZING WITH BAD BITCHES</Text>
-      <ListView 
-      horizontal={true}
-      showsHorizontalScrollIndicator = {false}
-    dataSource={this.state.dataSource}
-    pageSize = {5}
-      renderRow={(rowData) =>this.eachPic(rowData)}
-      />
+      <Text style = {{color:'#da533c', fontWeight:'600', fontSize:12}}>CHECK OUT HOW OTHERS CHOOSE FOR YOU</Text>
+
+      <TouchableOpacity style={{alignItems:'center', flexDirection:'row', marginTop:5, marginBottom:5, borderBottomWidth:1, borderColor:'#e3e3e3'}}>
+      <Image source = {Cards[0].image} style={{width:70, height:70, borderRadius:35, margin:10}} />
+      <View>
+        <Text style={{fontSize:24,fontWeight:'bold', color:'#111'}}>{Cards[0].percent}</Text>
+      </View>
+      <View>
+        <Image source={require('../images/vs.png')} style={{width:70, height:70, borderRadius:35, margin:10}} />
+      </View>
+      <View>
+        <Text style={{fontSize:24,fontWeight:'bold', color:'#111'}}>{Cards2[0].percent}</Text>
+      </View>
+        <Image source = {Cards2[0].image} style={{width:70, height:70, borderRadius:35, margin:10}} />
+      </TouchableOpacity>
+
+      <TouchableOpacity style={{alignItems:'center', flexDirection:'row', marginTop:5, marginBottom:5, borderBottomWidth:1, borderColor:'#e3e3e3'}}>
+      <Image source = {Cards[2].image} style={{width:70, height:70, borderRadius:35, margin:10}} />
+      <View>
+        <Text style={{fontSize:24,fontWeight:'bold', color:'#111'}}>{Cards[2].percent}</Text>
+      </View>
+      <View>
+        <Image source={require('../images/vs.png')} style={{width:70, height:70, borderRadius:35, margin:10}} />
+      </View>
+      <View>
+        <Text style={{fontSize:24,fontWeight:'bold', color:'#111'}}>{Cards2[2].percent}</Text>
+      </View>
+        <Image source = {Cards2[2].image} style={{width:70, height:70, borderRadius:35, margin:10}} />
+      </TouchableOpacity>
+
+
+      <TouchableOpacity style={{alignItems:'center', flexDirection:'row', marginTop:5, marginBottom:5}}>
+      <Image source = {Cards[4].image} style={{width:70, height:70, borderRadius:35, margin:10}} />
+      <View>
+        <Text style={{fontSize:24,fontWeight:'bold', color:'#111'}}>{Cards[4].percent}</Text>
+      </View>
+      <View>
+        <Image source={require('../images/vs.png')} style={{width:70, height:70, borderRadius:35, margin:10}} />
+      </View>
+      <View>
+        <Text style={{fontSize:24,fontWeight:'bold', color:'#111'}}>{Cards2[4].percent}</Text>
+      </View>
+        <Image source = {Cards2[4].image} style={{width:70, height:70, borderRadius:35, margin:10}} />
+      </TouchableOpacity>
+
+
       </View>
       <View style = {{margin:10}}>
-      <Text style = {{color:'#da533c', fontWeight:'600', fontSize:12}}>MESSAGES</Text>
-      <ListView 
-      horizontal={false}
-      scrollEnabled = {false}
-      showsHorizontalScrollIndicator = {false}
-    dataSource={this.state.convoData}
-    pageSize = {5}
-      renderRow={(rowData) =>this.convoRender(rowData)}
-      />
+      <Text style = {{color:'#da533c', fontWeight:'600', fontSize:12}}>COMMENTS</Text>
+
+      <TouchableOpacity style={{alignItems:'center', flexDirection:'row', marginTop:5, marginBottom:5, borderBottomWidth:1, borderColor:'#e3e3e3'}}>
+        <Image source = {Cards[0].image} style={{width:70, height:70, borderRadius:35, margin:10}} />
+      <View>
+        <Text style={{fontWeight:'600', color:'#111'}}>Likes: {Cards[0].thumbup}</Text>
+        <Text 
+          numberOfLines ={1}
+          style={{fontWeight:'400', color:'#888', width:200}}>{Cards[0].comments}</Text>
       </View>
-     
+      </TouchableOpacity>
+
+      <TouchableOpacity style={{alignItems:'center', flexDirection:'row', marginTop:5, marginBottom:5, borderBottomWidth:1, borderColor:'#e3e3e3'}}>
+        <Image source = {Cards[2].image} style={{width:70, height:70, borderRadius:35, margin:10}} />
+      <View>
+        <Text style={{fontWeight:'600', color:'#111'}}>Likes: {Cards[2].thumbup}</Text>
+        <Text 
+          numberOfLines ={1}
+          style={{fontWeight:'400', color:'#888', width:200}}>{Cards[2].comments}</Text>
+      </View>
+      </TouchableOpacity>
+
+
+      <TouchableOpacity style={{alignItems:'center', flexDirection:'row', marginTop:5, marginBottom:5, borderBottomWidth:1, borderColor:'#e3e3e3'}}>
+        <Image source = {Cards[5].image} style={{width:70, height:70, borderRadius:35, margin:10}} />
+      <View>
+        <Text style={{fontWeight:'600', color:'#111'}}>Likes: {Cards[5].thumbup}</Text>
+        <Text 
+          numberOfLines ={1}
+          style={{fontWeight:'400', color:'#888', width:200}}>{Cards[5].comments}</Text>
+      </View>
+      </TouchableOpacity>
+
+      </View>     
         </ScrollView>
         </View>
     )

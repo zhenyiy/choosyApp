@@ -6,7 +6,7 @@
 
 import React, { Component } from 'react';
 import {
-
+  TextInput,
   StyleSheet,
   Image,
   Text,
@@ -14,7 +14,6 @@ import {
   View
 } from 'react-native';
 import Nav from './global-widgets/nav'
-import SwipeCards from 'react-native-swipe-cards';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Iconz from 'react-native-vector-icons/Ionicons';
 import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
@@ -29,10 +28,10 @@ export default class Home extends Component {
       cards2: Cards2,
       card: Cards[0],
       card2:Cards2[0],
-      loop: true
+      loop: true,
+      currentIdx: 0
     }
   }
-
 
 
   Card(x){
@@ -44,6 +43,7 @@ export default class Home extends Component {
   }
 
   _goToNextCard(cardGroupNo) {
+    console.log("************go to next card")
     let currentCardIdx = this.state.cards.indexOf(this.state.card);
     let newIdx = currentCardIdx + 1;
     if(cardGroupNo === 1) {
@@ -69,9 +69,16 @@ export default class Home extends Component {
 
     this.setState({
       card: card,
-      card2:card2
+      card2:card2,
+      currentIdx:currentCardIdx
     });
   }
+
+     _submitForm (){
+     console.log("************************inside _submitForm: " + this.state.currentIdx)
+     // Cards[this.state.currentIdx].comments = this.state.value
+   };
+
   
 
   render() {
@@ -97,7 +104,8 @@ export default class Home extends Component {
             iconName={'comment'}
             iconColor={'white'}
             inputStyle={{ color: '#A07CBF' }}
-            on
+            ref="comment"
+            onSubmitEditing={this._submitForm}
           />
         </View>
       </View>
@@ -126,7 +134,8 @@ const styles = StyleSheet.create({
     height:250,
     alignItems: 'center',
     justifyContent:'center',
-    marginTop:20
+    marginTop:20,
+    borderRadius:5
   },
     card2: {
     marginTop:20

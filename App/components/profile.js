@@ -39,18 +39,28 @@ const styles = StyleSheet.create({
   },
   text: {
     color: 'white',
-    fontSize: 20,
+    fontSize: 15,
     textAlign: 'center'
   },
   button: {
+    marginTop:3,
     width:300, 
-    height:30, 
+    height:20, 
     borderWidth:1, 
     borderColor:'#A07CBF', 
     justifyContent:'center', 
     alignItems:'center',
     borderRadius:18,
-    backgroundColor: '#A07CBF'
+    backgroundColor: '#A07CBF',
+    marginBottom:2
+  },
+  image: {
+    width:300, 
+    height:250,
+    alignItems: 'center',
+    justifyContent:'center',
+    marginTop:20,
+    borderRadius:5
   }
 
 });
@@ -172,7 +182,7 @@ export default class Profile extends Component {
   }
 
   renderImage(image) {
-    return <Image style={{width: 300, height: 300, resizeMode: 'contain'}} source={image} />
+    return <Image style={styles.image} source={image} />
   }
 
   renderAsset(image) {
@@ -197,6 +207,11 @@ export default class Profile extends Component {
       <View style={{flexDirection:'row', alignItems:'center', justifyContent:'center'}}>
       <TouchableOpacity onPress={this.pickMultiple.bind(this)} style={styles.button}>
         <Text style={styles.text}>Select Two Photos</Text>
+      </TouchableOpacity>
+      </View>
+      <View style={{flexDirection:'row', alignItems:'center', justifyContent:'center'}}>
+      <TouchableOpacity onPress={this.cleanupImages.bind(this)} style={styles.button}>
+        <Text style={styles.text}>Submit Photos</Text>
       </TouchableOpacity>
       </View>
     </View>;

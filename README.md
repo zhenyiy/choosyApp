@@ -1,10 +1,8 @@
-# Tinder
-Tinder Swag
+# Choosy
+App for Startup Weekend DC 09/2016
 
-# Demo 
-https://www.youtube.com/watch?v=FTGa8Tjwfi8
+# Website 
+https://www.mychoosy.com
 
-# Launch Tinder
-- Clone
-- Npm install in terminal
-- Run on IOS simulator or Android emulator
+#Result
+2nd Place
